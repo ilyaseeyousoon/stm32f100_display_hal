@@ -499,12 +499,12 @@ ARM Macro Assembler    Page 8
               00000000 
 Command Line: --debug --xref --diag_suppress=9931 --cpu=Cortex-M3 --apcs=interw
 ork --depend="display_mt configuration\startup_stm32f100xb.d" -o"display_mt con
-figuration\startup_stm32f100xb.o" -ID:\ALL_PROJ\NTERRUPT_TRY\DISPLAY_MT\MDK-ARM
-\RTE -ID:\2\ARM\PACK\Keil\STM32F1xx_DFP\1.1.0\Device\Include -ID:\2\ARM\CMSIS\I
-nclude --predefine="__EVAL SETA 1" --predefine="__MICROLIB SETA 1" --predefine=
-"__UVISION_VERSION SETA 515" --predefine="STM32F10X_MD_VL SETA 1" --list=startu
-p_stm32f100xb.lst ..\Drivers\CMSIS\Device\ST\STM32F1xx\Source\Templates\arm\sta
-rtup_stm32f100xb.s
+figuration\startup_stm32f100xb.o" -ID:\ALL_PROJ\NTERRUPT_TRY\DISPLAY_MT\MT_DISP
+LAY_ON_HAL\MDK-ARM\RTE -ID:\2\ARM\PACK\Keil\STM32F1xx_DFP\1.1.0\Device\Include 
+-ID:\2\ARM\CMSIS\Include --predefine="__EVAL SETA 1" --predefine="__MICROLIB SE
+TA 1" --predefine="__UVISION_VERSION SETA 515" --predefine="STM32F10X_MD_VL SET
+A 1" --list=startup_stm32f100xb.lst ..\Drivers\CMSIS\Device\ST\STM32F1xx\Source
+\Templates\arm\startup_stm32f100xb.s
 
 
 
