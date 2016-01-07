@@ -4,7 +4,7 @@
   * Description        : Main program body
   ******************************************************************************
   *
-  * COPYRIGHT(c) 2015 STMicroelectronics
+  * COPYRIGHT(c) 2016 STMicroelectronics
   *
   * Redistribution and use in source and binary forms, with or without modification,
   * are permitted provided that the following conditions are met:
@@ -31,8 +31,11 @@
   ******************************************************************************
   */
 /* Includes ------------------------------------------------------------------*/
+#include "stm32f1xx_hal.h"
+#include "spi.h"
+#include "usart.h"
+#include "gpio.h"
 
-#include "main.h"
 /* USER CODE BEGIN Includes */
 
 /* USER CODE END Includes */
@@ -73,9 +76,9 @@ int main(void)
 
   /* Initialize all configured peripherals */
   MX_GPIO_Init();
-  MX_SPI1_Init();
-  MX_SPI2_Init();
-  MX_USART1_UART_Init();
+//  MX_SPI1_Init();
+//  MX_SPI2_Init();
+//  MX_USART1_UART_Init();
 
   /* USER CODE BEGIN 2 */
 	lcd_fillL();
@@ -126,7 +129,7 @@ int main(void)
 			 }			
 				case 2:
 				{
- 	delay(5);
+  	HAL_Delay(3000);
 			 vivod(1,0,0,"9");
 			 vivod(1,1,0, "10");
 			 vivod(1,2,0, "11");
@@ -147,7 +150,7 @@ int main(void)
 				}
 					case 3:
 				{
- 	delay(5);
+ 	HAL_Delay(3000);
 			 vivod(1,0,0,"17");
 			 vivod(1,1,0, "18");
 			 vivod(1,2,0, "19");
@@ -169,7 +172,7 @@ int main(void)
 				
 		 }
 	 }
-	delay(5);
+	 	HAL_Delay(3000);
 
 	set_xL(0);
 	set_yL(0);

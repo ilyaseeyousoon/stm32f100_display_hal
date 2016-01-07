@@ -1,5 +1,4 @@
 display_mt configuration\main.o: ..\Src\main.c
-display_mt configuration\main.o: ..\Inc\main.h
 display_mt configuration\main.o: ..\Drivers\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal.h
 display_mt configuration\main.o: ..\Inc\stm32f1xx_hal_conf.h
 display_mt configuration\main.o: ..\Drivers\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal_rcc.h

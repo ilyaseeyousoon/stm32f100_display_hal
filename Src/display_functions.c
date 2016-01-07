@@ -21,7 +21,7 @@ void otpravka(uint32_t kill) // ОТПРАВКА ДАННЫХ НА LCD
 {
  GPIO_Write(GPIOC,kill);
 	delay(0x000F);
-	HAL_GPIO_WritePin( GPIOC,  GPIO_PIN_9,GPIO_PIN_RESET);
+	HAL_GPIO_WritePin( GPIOC,  GPIO_PIN_9,GPIO_PIN_SET);
 	delay(0x000F);
 	HAL_GPIO_WritePin( GPIOC,  GPIO_PIN_9,GPIO_PIN_RESET);
 	delay(0x000F);
