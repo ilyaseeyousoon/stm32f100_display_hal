@@ -45,6 +45,9 @@
 /* USER CODE BEGIN PV */
 /* Private variables ---------------------------------------------------------*/
 uint32_t delay_count=0;	
+	
+	uint8_t data[15] ;
+		uint8_t datar[14] ;
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
@@ -60,6 +63,19 @@ void delay_ms(uint32_t delay_temp)
 {
 delay_count = delay_temp;
 	while(delay_count){}
+}
+
+void spi_receive(uint8_t m)
+{
+HAL_GPIO_WritePin(GPIOA,GPIO_PIN_4, GPIO_PIN_RESET);
+			
+//	HAL_SPI_TransmitReceive(&hspi1, &data[h],  &datar[h], 1,1000);
+			HAL_SPI_Receive(&hspi1,  &datar[m], 1,1000);
+//				HAL_SPI_Transmit_IT(&hspi1, &data[h], 1);
+//			
+//				HAL_SPI_Receive_IT(&hspi1,  &datar[h], 1);
+	HAL_GPIO_WritePin(GPIOA,GPIO_PIN_4, GPIO_PIN_SET);
+		HAL_Delay(1000);
 }
 /* USER CODE END 0 */
 
@@ -96,9 +112,7 @@ int main(void)
 	set_xL(0);
 	set_yL(0);
 	delay(0xFF);
-	
-	uint8_t data[15] ;
-		uint8_t datar[15] ;
+
 	data[0]=0x01;
 	data[1]=0x02;
 	data[2]=0x03;
@@ -121,12 +135,10 @@ int main(void)
   while (1)
   {
 		
-		for(uint8_t h=0;h<15;h++)
+		for(uint8_t h=0;h<10;h++)
 		{
-	HAL_GPIO_WritePin(GPIOA,GPIO_PIN_4, GPIO_PIN_RESET);
-	HAL_SPI_TransmitReceive(&hspi1, &data[h],  &datar[h], 1,100);
-	HAL_GPIO_WritePin(GPIOA,GPIO_PIN_4, GPIO_PIN_SET);
-			HAL_Delay(1000);
+spi_receive(h);
+//			HAL_Delay(1000);
 		}
 //	set_xL(0);
 //	set_yL(0);
