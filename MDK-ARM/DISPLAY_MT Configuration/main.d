@@ -26,3 +26,4 @@ display_mt configuration\main.o: ..\Drivers\STM32F1xx_HAL_Driver\Inc\stm32f1xx_h
 display_mt configuration\main.o: ..\Inc\spi.h
 display_mt configuration\main.o: ..\Inc\usart.h
 display_mt configuration\main.o: ..\Inc\gpio.h
+display_mt configuration\main.o: ..\Inc\stdio.h

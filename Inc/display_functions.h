@@ -12,6 +12,10 @@ void dataL(uint32_t ass);
 void dataR(uint32_t byte);
 void GLCD_WriteCharL(uint8_t charToWriteL) ;
 void GLCD_WriteCharR(uint8_t charToWriteR) ;
+void GLCD_WriteCharL_ex(uint8_t charToWriteL) ;
+void GLCD_WriteCharR_ex(uint8_t charToWriteR) ;
+void GLCD_WriteCharL_ex(uint8_t charToWriteL) ;
+void GLCD_WriteCharR_ex(uint8_t charToWriteR) ;
 void kristalli(uint32_t chislo);
 void set_xL(uint32_t pos_xL);
 void set_xR(uint32_t pos_xR);
@@ -24,6 +28,7 @@ void lcd_clearL();
 void lcd_fillR();
 void lcd_clearR();
 void vivod(unsigned char sector,unsigned char  pos_x,unsigned char  pos_y, unsigned char *abc);
+void vivod_ex(unsigned char sector,unsigned char  pos_x,unsigned char  pos_y, unsigned char *abc);
 	
 
 

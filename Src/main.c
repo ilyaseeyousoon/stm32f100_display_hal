@@ -35,7 +35,7 @@
 #include "spi.h"
 #include "usart.h"
 #include "gpio.h"
-
+#include "stdio.h"
 /* USER CODE BEGIN Includes */
 
 /* USER CODE END Includes */
@@ -45,8 +45,9 @@
 /* USER CODE BEGIN PV */
 /* Private variables ---------------------------------------------------------*/
 uint32_t delay_count=0;	
-		char	charka[4];
-	uint8_t data[15] ;
+char datas=88;
+	char s[17];
+	char data[15] ;
 		uint8_t datar[14] ;
 /* USER CODE END PV */
 
@@ -76,6 +77,16 @@ HAL_GPIO_WritePin(GPIOA,GPIO_PIN_4, GPIO_PIN_RESET);
 //				HAL_SPI_Receive_IT(&hspi1,  &datar[h], 1);
 	HAL_GPIO_WritePin(GPIOA,GPIO_PIN_4, GPIO_PIN_SET);
 //		HAL_Delay(1000);
+}
+
+void striiing(unsigned char sector,unsigned char  pos_x,unsigned char  pos_y,uint16_t datas)
+{
+uint16_t i,j,o;
+	uint32_t arg[6];
+	char _str[255];
+	sprintf(_str, " % d", datas);
+				vivod(sector,pos_x,pos_y, _str);
+
 }
 
 /* USER CODE END 0 */
@@ -115,20 +126,20 @@ int main(void)
 	delay(0xFF);
 
 	data[0]=0x01;
-	data[1]=0x02;
-	data[2]=0x03;
-	data[3]=0x04;
-	data[4]=0x05;
-	data[5]=0x06;
-	data[6]=0x07;
-	data[7]=0x08;
-	data[8]=0x09;
-	data[9]=0x10;
-	data[10]=0x11;
-	data[11]=0x12;
-	data[12]=0x13;
-	data[13]=0x14;
-	data[14]=0x15;
+//	data[1]=0x02;
+//	data[2]=0x03;
+//	data[3]=0x04;
+//	data[4]=0x05;
+//	data[5]=0x06;
+//	data[6]=6;
+//	data[7]=0x08;
+//	data[8]=0x09;
+//	data[9]=0x10;
+//	data[10]=0x11;
+//	data[11]=0x12;
+//	data[12]=0x13;
+//	data[13]=0x14;
+//	data[14]=0x15;
   /* USER CODE END 2 */
 
   /* Infinite loop */
@@ -140,7 +151,7 @@ int main(void)
 spi_receive(h);
 //			HAL_Delay(1000);
 		}
-		charka[0]	=datar[5];
+//		char	charka[]=datar[5];
 	set_xL(0);
 	set_yL(0);
 	set_xR(0);
@@ -160,20 +171,27 @@ spi_receive(h);
 			 vivod(1,5,0, "6");
 			 vivod(1,6,0, "7");
 			 vivod(1,7,0, "8");
+
+					striiing(2,0,0,datas);
+          striiing(2,1,0,data[0]);
+					
+//            vivod(2,0,0, _str);
+//            vivod(2,1,0, &s);
+//						vivod(2,1,0, "-2");
+//						vivod(2,2,0, "-3");
+//						vivod(2,3,0, "-4");
+//						vivod(2,4,0, "-5");
+//						vivod(2,5,0, "-6");
+//						vivod(2,6,0, "-7");
+//						vivod(2,7,0, "-8");
 	
-						vivod(2,0,0, charka[0]);
-						vivod(2,1,0, "-2");
-						vivod(2,2,0, "-3");
-						vivod(2,3,0, "-4");
-						vivod(2,4,0, "-5");
-						vivod(2,5,0, "-6");
-						vivod(2,6,0, "-7");
-						vivod(2,7,0, "-8");
 					break;
 			 }			
 				case 2:
 				{
   	HAL_Delay(3000);
+					lcd_clearL();
+	lcd_clearR();
 			 vivod(1,0,0,"9");
 			 vivod(1,1,0, "10");
 			 vivod(1,2,0, "11");
