@@ -265,26 +265,51 @@ komandaR(0x3F);
 	}
  }
  
- void GLCD_WriteCharL_ex(uint8_t charToWriteL) // ЗАПИСЬ СИМВОЛА В ЛЕВЫЙ 
-{
-int i;
-	charToWriteL -= 32; 
-for(i = 0; i < 5; i++) 
-	
-  dataL(GLCD_ReadByteFromROMMemory((uint8_t *)((int)font5x8 + (5 * charToWriteL) + i))); 
-dataL(0x00);
+
+ void vivod(unsigned char sector,unsigned char  pos_x,unsigned char  pos_y, uint16_t data,uint8_t notation)
+ {
+ uint16_t i,j,o;
+	 char _str[25];
+	switch (notation)
+	{
+		case 16:
+		{
+	sprintf(_str, "%x", data);
+	 break;
+	}
+		case 10:
+		{
+	sprintf(_str, "%d", data);
+	 break;
+	}
+		
+}
+  switch(sector)
+  {
+   case 1: 
+	 {
+		set_xL(pos_x);
+   set_yL(pos_y);
+		GLCD_WriteStringL(_str);
+   break;
+  }		
+   case 2:  // В РАЗРАБОТКЕ
+		{
+		set_xR(pos_x);
+   set_yR(pos_y);
+			GLCD_WriteStringR(_str);
+   break;
+  }
+ }
 }
 
-void GLCD_WriteCharR_ex(uint8_t charToWriteR) // ЗАПИСЬ СИМВОЛА В ПРАВЫЙ
-{
-int i;
-charToWriteR -= 32; 
-for(i = 0; i < 5; i++) 
+
+
+
 	
-  dataR(GLCD_ReadByteFromROMMemory((uint8_t *)((int)font5x8 + (5 * charToWriteR) + i))); 
-dataR(0x00);
-}
- void vivod(unsigned char sector,unsigned char  pos_x,unsigned char  pos_y, unsigned char *abc)
+	
+
+void vivod_ex(unsigned char sector,unsigned char  pos_x,unsigned char  pos_y, unsigned char *abc)
  {
  
 	 
@@ -303,66 +328,6 @@ dataR(0x00);
 		set_xR(pos_x);
    set_yR(pos_y);
 			GLCD_WriteStringR(abc);
-   break;
-  }
- }
-}
-
-
-void GLCD_WriteStringL_ex(char  stringToWrite[])// ЗАПИСЬ СТРОКИ В ЛЕВУЮ ЧАСТЬ ЭКРАНА(ПЕРЕДЕЛЕЛАТЬ,ЧТОБЫ 
-//В ЗАВИСИМОСТИ ОТ ТОГО КАКОЙ БАЙТ,ЗАПИСЫВАИСЬ ДДАНЫЕ В СВОЕ МЕСТО НА ЭКРАНЕ)СДЕЛАТЬ СЧЕТЧИК БАЙТ 
-{
-	uint8_t g=0;
-	 int length = 0;
-while(stringToWrite[g]!='\0')// ПОКА НЕ КОНЧИТСЯ СТРОКА
-{	
-	 length++;  
-g++;	
-	GLCD_WriteCharL_ex(stringToWrite[g]);
-	 *stringToWrite++;  
-}
-}
-
-	
-	
-	void GLCD_WriteStringR_ex(char * stringToWrite)// СТРОКА В ПРАВУЮ ЧАСТЬ(БЕЗ ОГРАНИЧЕНИЯ И ВЫРЕЗАНИЯ,ЕСЛИ ПРЕВЫСИТ ДЛИНУ ЭКРАНА)
-{ 
-uint8_t g=0;
-	 int length = 0;
-while(*stringToWrite)// ПОКА НЕ КОНЧИТСЯ СТРОКА
-{	
-if(length<=9)//РАЗМЕР ЧАСТИ ДИСПЛЕЯ В СИМВОЛАХ
-	{
-//???????
-
-	 length++; 
-     
-	GLCD_WriteCharR(*stringToWrite);
-	 *stringToWrite++;  
-}
-	else 
-		{break;}
-}	
-}
-void vivod_ex(unsigned char sector,unsigned char  pos_x,unsigned char  pos_y, unsigned char *abc)
- {
- 
-	 
-	 
-  switch(sector)
-  {
-   case 1: 
-	 {
-		set_xL(pos_x);
-   set_yL(pos_y);
-		GLCD_WriteStringL_ex(abc);
-   break;
-  }		
-   case 2:  // В РАЗРАБОТКЕ
-		{
-		set_xR(pos_x);
-   set_yR(pos_y);
-			GLCD_WriteStringR_ex(abc);
    break;
   }
  }

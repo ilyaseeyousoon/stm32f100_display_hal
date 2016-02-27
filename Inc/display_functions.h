@@ -27,7 +27,7 @@ void lcd_fillL();
 void lcd_clearL();
 void lcd_fillR();
 void lcd_clearR();
-void vivod(unsigned char sector,unsigned char  pos_x,unsigned char  pos_y, unsigned char *abc);
+ void vivod(unsigned char sector,unsigned char  pos_x,unsigned char  pos_y, uint16_t data,uint8_t notation);
 void vivod_ex(unsigned char sector,unsigned char  pos_x,unsigned char  pos_y, unsigned char *abc);
 	
 

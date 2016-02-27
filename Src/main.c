@@ -79,15 +79,15 @@ HAL_GPIO_WritePin(GPIOA,GPIO_PIN_4, GPIO_PIN_RESET);
 //		HAL_Delay(1000);
 }
 
-void striiing(unsigned char sector,unsigned char  pos_x,unsigned char  pos_y,uint16_t datas)
-{
-uint16_t i,j,o;
-	uint32_t arg[6];
-	char _str[255];
-	sprintf(_str, " % d", datas);
-				vivod(sector,pos_x,pos_y, _str);
+//void striiing(unsigned char sector,unsigned char  pos_x,unsigned char  pos_y,uint16_t datas)
+//{
+//uint16_t i,j,o;
+//	uint32_t arg[6];
+//	char _str[255];
+//	sprintf(_str, " % d", datas);
+//				vivod(sector,pos_x,pos_y, _str);
 
-}
+//}
 
 /* USER CODE END 0 */
 
@@ -124,7 +124,6 @@ int main(void)
 	set_xL(0);
 	set_yL(0);
 	delay(0xFF);
-
 	data[0]=0x01;
 //	data[1]=0x02;
 //	data[2]=0x03;
@@ -163,72 +162,72 @@ spi_receive(h);
 					case 1:
 				{
 
-			 vivod(1,0,0, "1");
-			 vivod(1,1,0, "2");
-			 vivod(1,2,0, "3");
-			 vivod(1,3,0, "4");
-			 vivod(1,4,0, "5");
-			 vivod(1,5,0, "6");
-			 vivod(1,6,0, "7");
-			 vivod(1,7,0, "8");
+			 vivod(1,0,0, datar[0],16);
+			  vivod(1,1,0, datar[0],10);
+			 vivod_ex(1,2,0, "11");
+			 vivod_ex(1,3,0, "4");
+			 vivod_ex(1,4,0, "5");
+			 vivod_ex(1,5,0, "6");
+			 vivod_ex(1,6,0, "7");
+			 vivod_ex(1,7,0, "8");
 
-					striiing(2,0,0,datas);
-          striiing(2,1,0,data[0]);
-					
-//            vivod(2,0,0, _str);
-//            vivod(2,1,0, &s);
-//						vivod(2,1,0, "-2");
-//						vivod(2,2,0, "-3");
-//						vivod(2,3,0, "-4");
-//						vivod(2,4,0, "-5");
-//						vivod(2,5,0, "-6");
-//						vivod(2,6,0, "-7");
-//						vivod(2,7,0, "-8");
+
+            vivod(2,0,0, data[0]);
+            vivod_ex(2,1,0, &s);
+						vivod_ex(2,1,0, "-2");
+						vivod_ex(2,2,0, "-3");
+						vivod_ex(2,3,0, "-4");
+						vivod_ex(2,4,0, "-5");
+						vivod_ex(2,5,0, "-6");
+						vivod_ex(2,6,0, "-7");
+						vivod_ex(2,7,0, "-8");
 	
 					break;
 			 }			
 				case 2:
 				{
   	HAL_Delay(3000);
-					lcd_clearL();
-	lcd_clearR();
-			 vivod(1,0,0,"9");
-			 vivod(1,1,0, "10");
-			 vivod(1,2,0, "11");
-			 vivod(1,3,0, "12");
-			 vivod(1,4,0, "13");
-			 vivod(1,5,0, "14");
-			 vivod(1,6,0, "15");
-			 vivod(1,7,0, "16");
-						vivod(2,0,0, "-9");
-						vivod(2,1,0, "-10");
-						vivod(2,2,0, "-11");
-						vivod(2,3,0, "-12");
-						vivod(2,4,0, "-13");
-						vivod(2,5,0, "-14");
-						vivod(2,6,0, "-15");
-						vivod(2,7,0, "-16");
+	   lcd_clearL();
+	   lcd_clearR();
+			 vivod_ex(1,0,0,"9");
+			 vivod_ex(1,1,0, "10");
+			 vivod_ex(1,2,0, "11");
+			 vivod_ex(1,3,0, "12");
+			 vivod_ex(1,4,0, "13");
+			 vivod_ex(1,5,0, "14");
+			 vivod_ex(1,6,0, "15");
+			 vivod_ex(1,7,0, "16");
+						vivod_ex(2,0,0, "-9");
+						vivod_ex(2,1,0, "-10");
+						vivod_ex(2,2,0, "-11");
+						vivod_ex(2,3,0, "-12");
+						vivod_ex(2,4,0, "-13");
+						vivod_ex(2,5,0, "-14");
+						vivod_ex(2,6,0, "-15");
+						vivod_ex(2,7,0, "-16");
 				break;
 				}
 					case 3:
 				{
  	HAL_Delay(3000);
-			 vivod(1,0,0,"17");
-			 vivod(1,1,0, "18");
-			 vivod(1,2,0, "19");
-			 vivod(1,3,0, "20");
-			 vivod(1,4,0, "21");
-			 vivod(1,5,0, "22");
-			 vivod(1,6,0, "23");
-			 vivod(1,7,0, "24");
-						vivod(2,0,0, "-17");
-						vivod(2,1,0, "-18");
-						vivod(2,2,0, "-19");
-						vivod(2,3,0, "-20");
-						vivod(2,4,0, "-21");
-						vivod(2,5,0, "-22");
-						vivod(2,6,0, "-23");
-						vivod(2,7,0, "-24");
+		 lcd_clearL();
+	   lcd_clearR();
+			 vivod_ex(1,0,0,"17");
+			 vivod_ex(1,1,0, "18");
+			 vivod_ex(1,2,0, "19");
+			 vivod_ex(1,3,0, "20");
+			 vivod_ex(1,4,0, "21");
+			 vivod_ex(1,5,0, "22");
+			 vivod_ex(1,6,0, "23");
+			 vivod_ex(1,7,0, "24");
+						vivod_ex(2,0,0, "-17");
+						vivod_ex(2,1,0, "-18");
+						vivod_ex(2,2,0, "-19");
+						vivod_ex(2,3,0, "-20");
+						vivod_ex(2,4,0, "-21");
+						vivod_ex(2,5,0, "-22");
+						vivod_ex(2,6,0, "-23");
+						vivod_ex(2,7,0, "-24");
 				break;
 				}
 				
