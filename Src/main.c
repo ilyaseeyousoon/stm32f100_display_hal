@@ -47,8 +47,8 @@
 uint32_t delay_count=0;	
 char datas=88;
 	char s[17];
-	char data[15] ;
-		uint8_t datar[14] ;
+	uint8_t data[12] ;
+		uint8_t datar[12] ;
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
@@ -71,7 +71,7 @@ void spi_receive(uint8_t m)
 HAL_GPIO_WritePin(GPIOA,GPIO_PIN_4, GPIO_PIN_RESET);
 			
 //	HAL_SPI_TransmitReceive(&hspi1, &data[h],  &datar[h], 1,1000);
-			HAL_SPI_Receive(&hspi1,  &datar[m], 1,1000);
+			HAL_SPI_Receive(&hspi1,  &datar[m], 1,10000);
 //				HAL_SPI_Transmit_IT(&hspi1, &data[h], 1);
 //			
 //				HAL_SPI_Receive_IT(&hspi1,  &datar[h], 1);
@@ -143,11 +143,18 @@ int main(void)
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
+	uint8_t ghg=0;
   while (1)
   {
-		for(uint8_t h=0;h<10;h++)
+		if (ghg==0){
+		spi_receive(0);
+			ghg=ghg+1;
+		}
+		for(uint8_t h=0;h<12;h++)
 		{
+			if(h!=0) {
 spi_receive(h);
+			}
 //			HAL_Delay(1000);
 		}
 //		char	charka[]=datar[5];
@@ -162,8 +169,8 @@ spi_receive(h);
 					case 1:
 				{
 
-			 vivod(1,0,0, datar[0],16);
-			  vivod(1,1,0, datar[0],10);
+			 vivod(1,0,0, datar[1],16);
+			  vivod(1,1,0, datar[1],10);
 			 vivod_ex(1,2,0, "11");
 			 vivod_ex(1,3,0, "4");
 			 vivod_ex(1,4,0, "5");
