@@ -36,6 +36,7 @@
 #include "usart.h"
 #include "gpio.h"
 #include "stdio.h"
+ #include "i2c.h"
 /* USER CODE BEGIN Includes */
 
 /* USER CODE END Includes */
@@ -49,6 +50,8 @@ char datas=88;
 	char s[17];
 	uint8_t data[12] ;
 		uint8_t datar[12] ;
+		uint8_t gg=0x33;
+		#define I2C_ADDRESS        0x3E
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
@@ -109,6 +112,7 @@ int main(void)
   /* Initialize all configured peripherals */
   MX_GPIO_Init();
   MX_SPI1_Init();
+	 I2C1_Initialize();
 //  MX_SPI2_Init();
 //  MX_USART1_UART_Init();
 
@@ -144,111 +148,117 @@ int main(void)
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
 	uint8_t ghg=0;
+	 HAL_I2C_Master_Receive_IT(&hi2c1, (uint16_t)I2C_ADDRESS, (uint8_t*)&gg, 1);
   while (1)
   {
-		if (ghg==0){
-		spi_receive(0);
-			ghg=ghg+1;
-		}
-		for(uint8_t h=0;h<12;h++)
-		{
-			if(h!=0) {
-spi_receive(h);
-			}
-//			HAL_Delay(1000);
-		}
-//		char	charka[]=datar[5];
-	set_xL(0);
-	set_yL(0);
-	set_xR(0);
-	set_yR(0);
-			 for(int l=0;l<4;l++)
-			 {
-				switch(l)
-				{
-					case 1:
-				{
+		
+		
+//			HAL_Delay(3000);
+		
+		
+//		if (ghg==0){
+//		spi_receive(0);
+//			ghg=ghg+1;
+//		}
+//		for(uint8_t h=0;h<12;h++)
+//		{
+//			if(h!=0) {
+//spi_receive(h);
+//			}
+////			HAL_Delay(1000);
+//		}
+////		char	charka[]=datar[5];
+//	set_xL(0);
+//	set_yL(0);
+//	set_xR(0);
+//	set_yR(0);
+//			 for(int l=0;l<4;l++)
+//			 {
+//				switch(l)
+//				{
+//					case 1:
+//				{
 
-			 vivod(1,0,0, datar[1],16);
-			  vivod(1,1,0, datar[1],10);
-			 vivod_ex(1,2,0, "11");
-			 vivod_ex(1,3,0, "4");
-			 vivod_ex(1,4,0, "5");
-			 vivod_ex(1,5,0, "6");
-			 vivod_ex(1,6,0, "7");
-			 vivod_ex(1,7,0, "8");
+//			 vivod(1,0,0, datar[1],16);
+//			  vivod(1,1,0, datar[1],10);
+//					vivod_ex(1,2,0, "laserstate");
+//			 vivod_ex(1,3,0, "4");
+//			 vivod_ex(1,4,0, "5");
+//			 vivod_ex(1,5,0, "6");
+//			 vivod_ex(1,6,0, "7");
+//			 vivod_ex(1,7,0, "8");
 
 
-            vivod(2,0,0, data[0]);
-            vivod_ex(2,1,0, &s);
-						vivod_ex(2,1,0, "-2");
-						vivod_ex(2,2,0, "-3");
-						vivod_ex(2,3,0, "-4");
-						vivod_ex(2,4,0, "-5");
-						vivod_ex(2,5,0, "-6");
-						vivod_ex(2,6,0, "-7");
-						vivod_ex(2,7,0, "-8");
-	
-					break;
-			 }			
-				case 2:
-				{
-  	HAL_Delay(3000);
-	   lcd_clearL();
-	   lcd_clearR();
-			 vivod_ex(1,0,0,"9");
-			 vivod_ex(1,1,0, "10");
-			 vivod_ex(1,2,0, "11");
-			 vivod_ex(1,3,0, "12");
-			 vivod_ex(1,4,0, "13");
-			 vivod_ex(1,5,0, "14");
-			 vivod_ex(1,6,0, "15");
-			 vivod_ex(1,7,0, "16");
-						vivod_ex(2,0,0, "-9");
-						vivod_ex(2,1,0, "-10");
-						vivod_ex(2,2,0, "-11");
-						vivod_ex(2,3,0, "-12");
-						vivod_ex(2,4,0, "-13");
-						vivod_ex(2,5,0, "-14");
-						vivod_ex(2,6,0, "-15");
-						vivod_ex(2,7,0, "-16");
-				break;
-				}
-					case 3:
-				{
- 	HAL_Delay(3000);
-		 lcd_clearL();
-	   lcd_clearR();
-			 vivod_ex(1,0,0,"17");
-			 vivod_ex(1,1,0, "18");
-			 vivod_ex(1,2,0, "19");
-			 vivod_ex(1,3,0, "20");
-			 vivod_ex(1,4,0, "21");
-			 vivod_ex(1,5,0, "22");
-			 vivod_ex(1,6,0, "23");
-			 vivod_ex(1,7,0, "24");
-						vivod_ex(2,0,0, "-17");
-						vivod_ex(2,1,0, "-18");
-						vivod_ex(2,2,0, "-19");
-						vivod_ex(2,3,0, "-20");
-						vivod_ex(2,4,0, "-21");
-						vivod_ex(2,5,0, "-22");
-						vivod_ex(2,6,0, "-23");
-						vivod_ex(2,7,0, "-24");
-				break;
-				}
-				
-		 }
-	 }
-	 	HAL_Delay(3000);
+//            vivod(2,0,0, data[0]);
+////            vivod_ex(2,1,0, &s);
+//						vivod_ex(2,2,0, " off");
+//						vivod_ex(2,1,0, "-3");
+//						vivod_ex(2,3,0, "-4");
+//						vivod_ex(2,4,0, "-5");
+//						vivod_ex(2,5,0, "-6");
+//						vivod_ex(2,6,0, "-7");
+//						vivod_ex(2,7,0, "-8");
+//	
+//					break;
+//			 }			
+//				case 2:
+//				{
+//  	HAL_Delay(3000);
+//	   lcd_clearL();
+//	   lcd_clearR();
+//			 vivod_ex(1,0,0,"9");
+//			 vivod_ex(1,1,0, "10");
+//			 vivod_ex(1,2,0, "11");
+//			 vivod_ex(1,3,0, "12");
+//			 vivod_ex(1,4,0, "13");
+//			 vivod_ex(1,5,0, "14");
+//			 vivod_ex(1,6,0, "15");
+//			 vivod_ex(1,7,0, "16");
+//						vivod_ex(2,0,0, "-9");
+//						vivod_ex(2,1,0, "-10");
+//						vivod_ex(2,2,0, "-11");
+//						vivod_ex(2,3,0, "-12");
+//						vivod_ex(2,4,0, "-13");
+//						vivod_ex(2,5,0, "-14");
+//						vivod_ex(2,6,0, "-15");
+//						vivod_ex(2,7,0, "-16");
+//				break;
+//				}
+//					case 3:
+//				{
+// 	HAL_Delay(3000);
+//		 lcd_clearL();
+//	   lcd_clearR();
+//			 vivod_ex(1,0,0,"17");
+//			 vivod_ex(1,1,0, "18");
+//			 vivod_ex(1,2,0, "19");
+//			 vivod_ex(1,3,0, "20");
+//			 vivod_ex(1,4,0, "21");
+//			 vivod_ex(1,5,0, "22");
+//			 vivod_ex(1,6,0, "23");
+//			 vivod_ex(1,7,0, "24");
+//						vivod_ex(2,0,0, "-17");
+//						vivod_ex(2,1,0, "-18");
+//						vivod_ex(2,2,0, "-19");
+//						vivod_ex(2,3,0, "-20");
+//						vivod_ex(2,4,0, "-21");
+//						vivod_ex(2,5,0, "-22");
+//						vivod_ex(2,6,0, "-23");
+//						vivod_ex(2,7,0, "-24");
+//				break;
+//				}
+//				
+//		 }
+//	 }
+//	 	HAL_Delay(3000);
 
-	set_xL(0);
-	set_yL(0);
-	set_xR(0);
-	set_yR(0);
+//	set_xL(0);
+//	set_yL(0);
+//	set_xR(0);
+//	set_yR(0);
 
-	lcd_clearL();
-	lcd_clearR();
+//	lcd_clearL();
+//	lcd_clearR();
 
 
   /* USER CODE END WHILE */

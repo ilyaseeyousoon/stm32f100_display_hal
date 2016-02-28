@@ -20,6 +20,7 @@ display_mt configuration\stm32f1xx_hal_gpio_ex.o: ..\Drivers\STM32F1xx_HAL_Drive
 display_mt configuration\stm32f1xx_hal_gpio_ex.o: ..\Drivers\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal_cortex.h
 display_mt configuration\stm32f1xx_hal_gpio_ex.o: ..\Drivers\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal_flash.h
 display_mt configuration\stm32f1xx_hal_gpio_ex.o: ..\Drivers\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal_flash_ex.h
+display_mt configuration\stm32f1xx_hal_gpio_ex.o: ..\Drivers\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal_i2c.h
 display_mt configuration\stm32f1xx_hal_gpio_ex.o: ..\Drivers\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal_pwr.h
 display_mt configuration\stm32f1xx_hal_gpio_ex.o: ..\Drivers\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal_spi.h
 display_mt configuration\stm32f1xx_hal_gpio_ex.o: ..\Drivers\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal_uart.h

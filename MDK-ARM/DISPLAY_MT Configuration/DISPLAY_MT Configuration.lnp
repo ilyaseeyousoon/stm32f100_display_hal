@@ -6,6 +6,8 @@
 "display_mt configuration\usart.o"
 "display_mt configuration\stm32f1xx_hal_msp.o"
 "display_mt configuration\display_functions.o"
+"display_mt configuration\i2c.o"
+"display_mt configuration\stm32f1xx_hal_i2c.o"
 "display_mt configuration\stm32f1xx_hal_gpio_ex.o"
 "display_mt configuration\stm32f1xx_hal_spi_ex.o"
 "display_mt configuration\stm32f1xx_hal_dma.o"
